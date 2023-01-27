@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <header1.h>
+int main()
+{
+ int error = 0;
+ int ledNum = 0;
+ int colors[NUM_LEDS] = {GREEN_LED, BLUE_LED, RED_LED};
+ setupGPIO();
+ while(!error)
+ {
+    ledNum++;
+    if(ledNum >= NUM_LEDS)
+        ledNum = 0;
+    setLED(Green_PIN_17, ON);
+    setLED(Yellow_PIN_18, ON);
+    setLED(Red_PIN_19, OFF);
+    delay(DELAY);
+    setLED(Green_PIN_17, OFF);
+    setLED(Yellow_PIN_18, OFF);
+    error = setLED(Red_PIN_19, ON);
+    delay(DELAY);
+ }
+return 0;
+}

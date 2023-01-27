@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include"header1.h"
+int main()
+{
+ setupGPIO();
+
+ while(1)
+ {
+ if(checkBot()) setLED(0x400000,ON);
+ else setLED(0x400000,OFF);
+
+ }
+ return 0;
+}
